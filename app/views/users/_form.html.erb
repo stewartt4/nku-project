@@ -1,0 +1,17 @@
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div id='error_explanation'>
+      <ul>
+        <% @user.errors.full_message.each do |msg| %>
+          <ul><%= msg %> </ul>
+        <% end%>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+<% end %>
