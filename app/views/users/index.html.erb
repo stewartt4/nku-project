@@ -1,3 +1,6 @@
-<h1>Speedy Auction</h1>
-<%= link_to "Edit Profile", edit_user_path(current_user) %>
-<%= link_to "Sign out", signout_path, method: "delete" %>
+<h1 class="center">Speedy Auction</h1>
+<div id="signout"><%= link_to "Sign out", signout_path, class: "btn btn-large btn-primary", method: "delete" %></div>
+<ul class="nav nav-tabs nav-justified">
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+</ul>
