@@ -1,0 +1,22 @@
+<%= form_for @item do |f| %>
+  <% if @item.errors.any? %>
+    <div id='error_explanation'>
+      <ul>
+        <% @item.errors.full_message.each do |msg| %>
+          <ul><%= msg %> </ul>
+        <% end%>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :start_bid %>
+  <%= f.text_field :start_bid %>
+
+  <%= f.label :picture %>
+  <%= f.file_field :picture %>
+
+  <%= f.submit class: 'btn btn-large btn-primary'%>
+<% end %>
