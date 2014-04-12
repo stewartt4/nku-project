@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = current_user.items
   end
 
   def new
@@ -8,8 +8,13 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create!(item_params)
-    redirect_to items_path, notice: "Item created!"
+    @item = current_user.items.build(item_params)
+
+    if @item.save
+      redirect_to items_path, notice: "Item created!"
+    else
+      render 'new'
+    end
   end
 
   def edit

@@ -8,6 +8,15 @@
 </head>
 <body>
 
+<% if current_user %>
+<div id="signout"><%= link_to "Sign out", signout_path, class: "btn btn-large btn-primary", method: "delete" %></div>
+<ul class="nav nav-tabs nav-justified">
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+  <li><%= link_to "Sell Item", new_item_path %></li>
+  <li><%= link_to "Items for Sale", items_path %></li>
+</ul>
+<% end %>
 <%= yield %>
 
 </body>
