@@ -4,6 +4,9 @@ ruby "2.0.0"
 
 gem 'rails', '4.0.4'
 
+gem "rmagick"
+gem "carrierwave"
+
 gem 'sass-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
