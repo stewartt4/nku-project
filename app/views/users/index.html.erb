@@ -1,1 +1,8 @@
 <h1 class="center">Speedy Auction</h1>
+<h3 class="center">Items for sale</h3>
+<% @items.each do |item| %>
+  <p><%= image_tag item.picture.to_s %></p>
+  <p>Name: <%= item.name %></p>
+  <p>Starting Bid: $<%= item.start_bid %></p>
+  <p><%= User.find(item.user_id).email %>
+<% end %>
