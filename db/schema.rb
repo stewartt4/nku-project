@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405145632) do
+ActiveRecord::Schema.define(version: 20140412150136) do
 
   create_table "items", force: true do |t|
     t.string   "name"
-    t.integer  "start_bid"
     t.string   "picture"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "current_bid"
+    t.decimal  "start_bid"
   end
 
   create_table "users", force: true do |t|
