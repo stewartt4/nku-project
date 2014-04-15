@@ -3,6 +3,6 @@
 <% @items.each do |item| %>
   <p><%= image_tag item.picture.to_s %></p>
   <p>Name: <%= item.name %></p>
-  <p>Starting Bid: $<%= item.start_bid %></p>
-  <p><%= User.find(item.user_id).email %>
+  <p>Starting Bid: $<%= item.start_bid.round(2) %></p>
+  <p>Seller: <%= User.find(item.user_id).email %></p>
 <% end %>

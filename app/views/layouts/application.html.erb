@@ -16,6 +16,11 @@
   <li><%= link_to "Sell Item", new_item_path %></li>
   <li><%= link_to "My Items for Sale", items_path %></li>
 </ul>
+<% else %>
+<ul class="nav nav-tabs nav-justified">
+  <li><%= link_to "Existing User? Sign in now!", signin_path %></li>
+  <li><%= link_to "New User? Sign up now!", signup_path %>
+</ul>
 <% end %>
 <%= yield %>
 
