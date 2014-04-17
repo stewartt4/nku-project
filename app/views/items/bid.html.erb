@@ -1,0 +1,16 @@
+<h1>What's Your Bid?</h1>
+<p><%= @item.name %></p>
+<%= image_tag @item.picture.to_s %>
+
+<% if @item.current_bid %>
+  <p>Current Highest Bid: <%= @item.current_bid %> By: <%= User.find(@item.bidder_id).email %>
+  <p>You must bid higher than current highest bid</p>
+<% else %>
+  <p>You're the first to bid on this item!</p>
+  <p>You need to bid higher than the starting bid</p>
+<% end %>
+
+<%= form_for @item do |f|  %>
+  <p>Bid: <%= f.text_field :current_bid %></p>
+  <%= f.submit "Place Bid", class: 'btn btn-large btn-primary' %>
+<% end %>

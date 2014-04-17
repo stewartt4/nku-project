@@ -2,5 +2,5 @@
 <% @items.each do |item| %>
   <p><%= image_tag item.picture.to_s %></p>
   <p>Name: <%= item.name %></p>
-  <p>Starting Bid: $<%= item.start_bid %></p>
+  <p>Starting Bid: <%= number_to_currency(item.start_bid) %></p>
 <% end %>
