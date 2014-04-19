@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   def create
     @item = current_user.items.build(item_params)
     if @item.save
+      @item.bids.build(bid_params)
       redirect_to root_path, notice: "Item created!"
     else
       render 'new'
@@ -36,5 +37,9 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit!
+  end
+
+  def bid_params
+    params.require(:bid).permit!
   end
 end

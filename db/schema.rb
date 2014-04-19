@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140416231003) do
+ActiveRecord::Schema.define(version: 20140419150524) do
+
+  create_table "bids", force: true do |t|
+    t.decimal  "start_bid",   default: 0.0
+    t.decimal  "highest_bid", default: 0.0
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "place_bid",   default: 0.0
+  end
 
   create_table "items", force: true do |t|
     t.string   "name"
