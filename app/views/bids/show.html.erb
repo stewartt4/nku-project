@@ -6,7 +6,7 @@
 <%= image_tag @item.picture.to_s %>
 
 <% unless @bid.place_bid == 0.0 %>
-  <p>Current Highest Bid: <%= number_to_currency(@highest_bid) %> By: <%= User.find(@bid.bidder_id).email %>
+  <p>Current Highest Bid: <%= number_to_currency(Bid.find_highest_bid(@item)) %> By: <%= User.find(@bid.bidder_id).email %>
   <p>You must bid higher than current highest bid</p>
 <% else %>
   <p>You're the first to bid on this item!</p>

@@ -1,9 +1,9 @@
 <h1 class="center">My Items for Sale</h1>
 <% @items.each do |item| %>
-  <p><%= image_tag item.picture.to_s %></p>
+  <p><%= image_tag item.picture %></p>
   <p>Name: <%= item.name %></p>
   <% if item.bidder_id %>
-    <p>Current Highest Bid: <%= number_to_currency(@highest_bid) %></p>
+    <p>Current Highest Bid: <%= number_to_currency(Bid.find_highest_bid(item)) %></p>
     <p>Highest Bidder: <%= User.find(item.bidder_id).email %></p>
   <% else %>
     <p>Starting Bid: <%= number_to_currency(item.start_bid) %></p>

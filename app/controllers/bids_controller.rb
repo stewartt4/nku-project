@@ -3,7 +3,6 @@ class BidsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @bid = Bid.find_by_item_id(@item.id)
-    @highest_bid = Bid.order("place_bid DESC").first.place_bid
   end
 
   def new
