@@ -2,5 +2,7 @@
 <% @items.each do |item| %>
   <p><%= image_tag item.picture.to_s %></p>
   <p>Name: <%= item.name %></p>
-  <p>Starting Bid: <%= number_to_currency(item.start_bid) %></p>
+  <% if item.bid.highest_bid == 0.0 %>
+    <p>Starting Bid: <%= number_to_currency(item.start_bid) %></p>
+  <% end %>
 <% end %>

@@ -7,11 +7,12 @@
 <% @items.each do |item| %>
   <p><%= image_tag item.picture.to_s %></p>
   <p>Name: <%= item.name %></p>
-  <p>Starting Bid: <%= number_to_currency(item.start_bid.round(2)) %></p>
   <p>Seller: <%= User.find(item.user_id).email %></p>
   <% if item.bidder_id %>
-    <p>Current Bid: <%= number_to_currency(item.current_bid) %></p>
+    <p>Current Highest Bid: <%= number_to_currency(@highest_bid) %></p>
     <p>Highest Bidder: <%= User.find(item.bidder_id).email %></p>
+  <% else %>
+    <p>Starting Bid: <%= number_to_currency(item.start_bid) %></p>
   <% end %>
   <p><%= link_to "Place Bid?", bid_path(item), class: 'btn btn-large btn-primary' %></p>
 <% end %>

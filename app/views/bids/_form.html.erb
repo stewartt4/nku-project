@@ -1,14 +1,12 @@
 <%= form_for @bid do |f|  %>
-<% if @bid.errors.any? %>
+  <% if @bid.errors.any? %>
     <div id='error_explanation'>
       <ul>
-        <% @bid.errors.full_message.each do |msg| %>
-          <ul><%= msg %> </ul>
-        <% end%>
+      <h2><%= pluralize(@bid.errors.count, "error") %> prohibited this bid from being saved:</h2>
       </ul>
     </div>
   <% end %>
 
-  <p>Bid: <%= f.text_field :bid%></p>
+  <p>Bid: <%= f.text_field :place_bid %></p>
   <%= f.submit "Place Bid", class: 'btn btn-large btn-primary' %>
 <% end %>
