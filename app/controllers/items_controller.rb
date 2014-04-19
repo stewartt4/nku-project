@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @items = current_user.items
+    @highest_bid = Bid.order("place_bid DESC").first.place_bid
   end
 
   def new
