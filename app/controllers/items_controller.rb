@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
+    @item.validate_bid(:current_bid, @item.current_bid)
     @item.bidder_id = current_user.id
     @item.update_attributes!(item_params)
     redirect_to root_path, notice: "Successfully bidded on item!"

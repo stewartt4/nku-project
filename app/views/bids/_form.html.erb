@@ -1,0 +1,14 @@
+<%= form_for @item do |f|  %>
+<% if @item.errors.any? %>
+    <div id='error_explanation'>
+      <ul>
+        <% @item.errors.full_message.each do |msg| %>
+          <ul><%= msg %> </ul>
+        <% end%>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>Bid: <%= f.text_field :current_bid %></p>
+  <%= f.submit "Place Bid", class: 'btn btn-large btn-primary' %>
+<% end %>

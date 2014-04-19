@@ -10,7 +10,3 @@
   <p>You need to bid higher than the starting bid</p>
 <% end %>
 
-<%= form_for @item do |f|  %>
-  <p>Bid: <%= f.text_field :current_bid %></p>
-  <%= f.submit "Place Bid", class: 'btn btn-large btn-primary' %>
-<% end %>
