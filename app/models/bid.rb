@@ -17,4 +17,8 @@ class Bid < ActiveRecord::Base
   def self.find_highest_bid(item)
     find_all_by_item_id(item).first.place_bid
   end
+
+  def self.time_left(bid)
+    find_by_end_time(bid).end_time - Time.now
+  end
 end

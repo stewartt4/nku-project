@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140421222730) do
+ActiveRecord::Schema.define(version: 20140421225104) do
 
   create_table "bids", force: true do |t|
     t.decimal  "start_bid",   default: 0.0
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140421222730) do
     t.decimal  "start_bid",   precision: 30, scale: 2
     t.decimal  "current_bid", precision: 30, scale: 2
     t.integer  "bidder_id"
+    t.datetime "end_time"
   end
 
   create_table "users", force: true do |t|
