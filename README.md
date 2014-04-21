@@ -11,6 +11,9 @@
 # and picture of the piece of junk that I am selling so that buyers can
 # see what I have to sell.
 
+# As a seller I want a page where I can see all of the items that I am
+# selling so that I can keep track of what I am selling.
+
 # As a buyer I want to be able to see all of the junk that is being sold
 # by the other users so that I can bid on what I want to buy.
 
