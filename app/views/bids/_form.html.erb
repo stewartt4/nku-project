@@ -1,9 +1,9 @@
 <%= form_for @bid do |f|  %>
   <% if @bid.errors.any? %>
     <div id='error_explanation'>
-      <ul>
-      <h2><%= pluralize(@bid.errors.count, "error") %> prohibited this bid from being saved:</h2>
-      </ul>
+      <% @bid.errors.full_messages.each do |msg|%>
+        <ul><%= msg %></ul>
+      <% end %>
     </div>
   <% end %>
 
