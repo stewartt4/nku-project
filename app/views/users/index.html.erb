@@ -8,10 +8,10 @@
   <p><%= image_tag item.picture.to_s %></p>
   <p>Name: <%= item.name %></p>
   <p>Seller: <%= User.find(item.user_id).email %></p>
+  <p>Days left to bid <%= (Item.time_left(item) - Date.today).to_i %> days left.</p>
   <% if item.bidder_id %>
     <p>Current Highest Bid: <%= number_to_currency(Bid.find_highest_bid(item))%></p>
     <p>Highest Bidder: <%= User.find(item.bidder_id).email %></p>
-    <p><%= Bid.time_left(item) %></p>
   <% else %>
     <p>Starting Bid: <%= number_to_currency(item.start_bid) %></p>
   <% end %>
