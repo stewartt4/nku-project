@@ -5,15 +5,17 @@
 <h1 class="center">Speedy Auction</h1>
 <h3 class="center">Items for sale</h3>
 <% @items.each do |item| %>
-  <p><%= image_tag item.picture.to_s %></p>
-  <p>Name: <%= item.name %></p>
-  <p>Seller: <%= User.find(item.user_id).email %></p>
-  <p>Days left to bid <%= (Item.time_left(item) - Date.today).to_i %> days left.</p>
-  <% if item.bidder_id %>
-    <p>Current Highest Bid: <%= number_to_currency(Bid.find_highest_bid(item))%></p>
-    <p>Highest Bidder: <%= User.find(item.bidder_id).email %></p>
-  <% else %>
-    <p>Starting Bid: <%= number_to_currency(item.start_bid) %></p>
+  <% if (Item.time_left(item) - Date.today).to_i > 0 %>
+    <p><%= image_tag item.picture.to_s %></p>
+    <p>Name: <%= item.name %></p>
+    <p>Seller: <%= User.find(item.user_id).email %></p>
+    <p>Days left to bid <%= (Item.time_left(item) - Date.today).to_i %> days left.</p>
+    <% if item.bidder_id %>
+      <p>Current Highest Bid: <%= number_to_currency(Bid.find_highest_bid(item))%></p>
+      <p>Highest Bidder: <%= User.find(item.bidder_id).email %></p>
+    <% else %>
+      <p>Starting Bid: <%= number_to_currency(item.start_bid) %></p>
+    <% end %>
+    <p><%= link_to "Place Bid?", bid_path(item), class: 'btn btn-large btn-primary' %></p>
   <% end %>
-  <p><%= link_to "Place Bid?", bid_path(item), class: 'btn btn-large btn-primary' %></p>
 <% end %>
