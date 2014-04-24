@@ -1,8 +1,12 @@
 class BidsController < ApplicationController
 
   def show
-    @item = Item.find(params[:id])
-    @bid = Bid.find_by_item_id(@item.id)
+    if Item.find(params[:id]).user_id != current_user.id
+      @item = Item.find(params[:id])
+      @bid = Bid.find_by_item_id(@item.id)
+    else
+      redirect_to root_path, notice: "You can't bid on your own item silly!"
+    end
   end
 
   def new
