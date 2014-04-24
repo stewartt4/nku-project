@@ -1,11 +1,28 @@
 <h1 class="center">My Items for Sale</h1>
+<h2 class='center'>Active Items</h2>
 <% @items.each do |item| %>
-  <p><%= image_tag item.picture %></p>
-  <p>Name: <%= item.name %></p>
-  <% if item.bidder_id %>
-    <p>Current Highest Bid: <%= number_to_currency(Bid.find_highest_bid(item)) %></p>
-    <p>Highest Bidder: <%= User.find(item.bidder_id).email %></p>
-  <% else %>
-    <p>Starting Bid: <%= number_to_currency(item.start_bid) %></p>
+  <% if Item.time_left(item) > Date.today %>
+    <p><%= image_tag item.picture %></p>
+    <p>Name: <%= item.name %></p>
+    <% if item.bidder_id %>
+      <p>Current Highest Bid: <%= number_to_currency(Bid.find_highest_bid(item)) %></p>
+      <p>Highest Bidder: <%= User.find(item.bidder_id).email %></p>
+    <% else %>
+      <p>Starting Bid: <%= number_to_currency(item.start_bid) %></p>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h2 class='center'>Inactive Items</h2>
+<% @items.each do |item| %>
+  <% unless Item.time_left(item) > Date.today %>
+    <p><%= image_tag item.picture %></p>
+    <p>Name: <%= item.name %></p>
+    <% if item.bidder_id %>
+      <p>Sold for: <%= number_to_currency(Bid.find_highest_bid(item)) %></p>
+      <p>Sold to: <%= User.find(item.bidder_id).email %></p>
+    <% else %>
+      <strong><p>This item didn't sell....so sad :(</p></strong>
+    <% end %>
   <% end %>
 <% end %>
