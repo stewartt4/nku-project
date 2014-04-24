@@ -2,8 +2,12 @@ class BidsController < ApplicationController
 
   def show
     if Item.find(params[:id]).user_id != current_user.id
-      @item = Item.find(params[:id])
-      @bid = Bid.find_by_item_id(@item.id)
+      if (Item.time_left(Item.find(params[:id])) - Date.today) > 0
+        @item = Item.find(params[:id])
+        @bid = Bid.find_by_item_id(@item.id)
+      else
+        redirect_to root_path, notice: "Time of this item has expired."
+      end
     else
       redirect_to root_path, notice: "You can't bid on your own item silly!"
     end
