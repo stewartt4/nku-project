@@ -1,7 +1,7 @@
 <h1 class="center">My Items for Sale</h1>
 <h2 class='center'>Active Items</h2>
 <% @items.each do |item| %>
-  <% if Item.time_left(item) > Date.today %>
+  <% if (item.time_left) > 0 %>
     <p><%= image_tag item.picture %></p>
     <p>Name: <%= item.name %></p>
     <% if item.bidder_id %>
@@ -15,7 +15,7 @@
 
 <h2 class='center'>Inactive Items</h2>
 <% @items.each do |item| %>
-  <% unless Item.time_left(item) > Date.today %>
+  <% unless (item.time_left) > 0 %>
     <p><%= image_tag item.picture %></p>
     <p>Name: <%= item.name %></p>
     <% if item.bidder_id %>

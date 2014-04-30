@@ -7,7 +7,7 @@ class Item < ActiveRecord::Base
   validates :picture, presence: true
   mount_uploader :picture
 
-  def self.time_left(item)
-    find(item).end_day
+  def time_left
+    end_day - Date.today
   end
 end

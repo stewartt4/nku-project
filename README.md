@@ -17,11 +17,17 @@
 # As a buyer I want to be able to see all of the junk that is being sold
 # by the other users so that I can bid on what I want to buy.
 
-# As a buyer I want to able to bid on the junk I want to buy so that I
+# As a buyer I want to be able to bid on the junk I want to buy so that I
 # can buy what the seller is selling.
+
+# As a seller I want to be able to see how many days are left to bid on
+# an item so that I can wait until the last second to bid on an item I
+# want.
+
+# As a buyer I want to be able to see the Items I have sold(or not sold)
+# so that I can see my history.
 #----------------------------------------------------------------------------
 # To-Do
 #----------------------------------------------------------------------------
-# - Show time left in Auction 
 # - Display Top Items
 #----------------------------------------------------------------------------

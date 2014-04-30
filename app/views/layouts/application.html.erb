@@ -22,6 +22,8 @@
   <li><%= link_to "New User? Sign up now!", signup_path %>
 </ul>
 <% end %>
+<p class='right'><%= current_user.first_name if current_user %> is signed in</p>
+
 <%= yield %>
 
 </body>
